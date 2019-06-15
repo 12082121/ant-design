@@ -15,9 +15,7 @@ export interface DescriptionsItemProps {
   children?: React.ReactNode;
 }
 
-const DescriptionsItem: React.SFC<DescriptionsItemProps> = ({ children }) => (
-  <span>{children}</span>
-);
+const DescriptionsItem: React.FC<DescriptionsItemProps> = ({ children }) => <span>{children}</span>;
 
 export interface DescriptionsProps {
   prefixCls?: string;
@@ -239,7 +237,7 @@ class Descriptions extends React.Component<
             >
               {title && <div className={`${prefixCls}-title`}>{title}</div>}
               <div className={`${prefixCls}-view`}>
-                <table>
+                <table style={bordered ? {} : { tableLayout: 'fixed' }}>
                   <tbody>
                     {childrenArray.map((child, index) =>
                       renderRow(
